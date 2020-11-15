@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Nos Offres' %}
+
+{% block body %}
+    <div class="container mt-3">
+        <h1>Nos Offres</h1>
+        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus imperdiet porttitor justo. Donec ac lorem
+            neque. Suspendisse vel urna faucibus, fermentum lacus ut, efficitur ex. Aliquam rhoncus tellus in pulvinar
+            faucibus. Curabitur tempor mollis magna, ut volutpat elit blandit ut. Donec imperdiet at lectus vitae
+            mattis. Duis et congue magna. Vestibulum posuere tempus pretium. Aliquam a facilisis tortor. Vestibulum
+            imperdiet viverra lorem, non fringilla mauris blandit sit amet. Suspendisse finibus placerat velit, id
+            sodales nibh suscipit at. Morbi et tortor orci.
+        </p>
+        <div class="row">
+            {% for offer in offers %}
+                <div class="col-md-4">
+                    {% include 'pages/offer/_offer.html.twig' %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

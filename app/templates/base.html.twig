@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="My Symfony App"/>
+    <meta name="author" content="Alan PIERRE"/>
+    <title>{% block title %}My App{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('img/favicon.ico') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('bootstrap-4.4.1/css/bootstrap.min.css') }}">
+
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="{{ path('home') }}">Fitness Center</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link {% if current_menu is defined and current_menu == 'offers' %}active{% endif %}"
+                   href="{{ path('offer.index') }}">Offres</a>
+            </li>
+            {#            <li class="nav-item">#}
+            {#                <a class="nav-link {% if current_menu is defined and current_menu == 'reviews' %}active{% endif %}"#}
+            {#                   href="{{ path('pages.review.index') }}">Avis</a>#}
+            {#            </li>#}
+            {#            <li class="nav-item">#}
+            {#                <a class="nav-link {% if current_menu is defined and current_menu == 'newsletter' %}active{% endif %}"#}
+            {#                   href="{{ path('pages.newsletter') }}">Newsletter</a>#}
+            {#            </li>#}
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link {% if current_menu is defined and current_menu == 'workouts' %}active{% endif %}"
+                   href="{{ path('profile.workout.index') }}">Mes Séances</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {% if current_menu is defined and current_menu == 'subscriptions' %}active{% endif %}"
+                   href="{{ path('profile.subscription.index') }}">Mes Abonnements</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {% if current_menu is defined and current_menu == 'workouts' %}active{% endif %}"
+                   href="{{ path('profile.payment.index') }}">Mes Moyens de Payement</a>
+            </li>
+            <li class="nav-item dropleft">
+                <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Mon Compte
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {% if app.user %}
+                        <a class="dropdown-item" href="{{ path('profile.home') }}">Mes Infos</a>
+                    {% else %}
+                        <a class="dropdown-item" href="{{ path('pages.newUser') }}">Créer un compte</a>
+                    {% endif %}
+                    <div class="dropdown-divider"></div>
+                    {% if app.user %}
+                        <a class="dropdown-item" href="{{ path('logout') }}">Se déconnecter</a>
+                    {% else %}
+                        <a class="dropdown-item" href="{{ path('login') }}">Se connecter</a>
+                    {% endif %}
+                </div>
+            </li>
+        </ul>
+        {% if is_granted('ROLE_ADMIN') %}
+            <a class="btn btn-success ml-3" href="{{ path('admin.home') }}" role="button">Interface d'administration</a>
+        {% endif %}
+    </div>
+</nav>
+
+{% block body %}{% endblock %}
+
+<footer>
+    <span class="text-center">Copyright © 2020 Alan PIERRE</span>
+</footer>
+{% block javascripts %}{% endblock %}
+<script type="text/javascript" src="{{ asset('bootstrap-4.4.1/js/jquery-3.4.1.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bootstrap-4.4.1/js/bootstrap.bundle.min.js') }}"></script>
+</body>
+</html>

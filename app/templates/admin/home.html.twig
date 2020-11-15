@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'List of my offers' %}
+
+{% block body %}
+    <div class="container mt-3">
+        <h1>Mon Interface d'Administration</h1>
+        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus imperdiet porttitor justo. Donec ac lorem
+            neque. Suspendisse vel urna faucibus, fermentum lacus ut, efficitur ex. Aliquam rhoncus tellus in pulvinar
+            faucibus. Curabitur tempor mollis magna, ut volutpat elit blandit ut. Donec imperdiet at lectus vitae
+            mattis. Duis et congue magna. Vestibulum posuere tempus pretium. Aliquam a facilisis tortor. Vestibulum
+            imperdiet viverra lorem, non fringilla mauris blandit sit amet. Suspendisse finibus placerat velit, id
+            sodales nibh suscipit at. Morbi et tortor orci.
+        </p>
+        <row><a class="btn btn-primary mt-3" href="{{ path('admin.offer.index') }}"
+                role="button">Gérer les Offres</a>
+            <a class="btn btn-primary mt-3" href="{{ path('admin.modality.index') }}"
+               role="button">Gérer les modalités de payement des offres</a>
+            <a class="btn btn-primary mt-3" href="{{ path('admin.user.index') }}"
+               role="button">Gérer les Comptes</a>
+            <a class="btn btn-primary mt-3" href="{{ path('admin.subscription.index') }}"
+               role="button">Gérer les Abonnements</a>
+            <a class="btn btn-primary mt-3" href="{{ path('admin.equipment.index') }}"
+               role="button">Gérer le parc de machines</a>
+        </row>
+    </div>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Mes Moyens de Payements ' %}
+
+{% block body %}
+    <div class="container mt-3">
+    <h1>Mes Moyens de Payements </h1>
+    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus imperdiet porttitor justo. Donec ac lorem
+        neque. Suspendisse vel urna faucibus, fermentum lacus ut, efficitur ex. Aliquam rhoncus tellus in pulvinar
+        faucibus. Curabitur tempor mollis magna, ut volutpat elit blandit ut. Donec imperdiet at lectus vitae
+        mattis. Duis et congue magna. Vestibulum posuere tempus pretium. Aliquam a facilisis tortor. Vestibulum
+        imperdiet viverra lorem, non fringilla mauris blandit sit amet. Suspendisse finibus placerat velit, id
+        sodales nibh suscipit at. Morbi et tortor orci.
+    </p>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Cartes de Crédit</h2>
+
+            {% for creditCard in creditCards %}
+                <div class="element">
+
+                    <h4>N°{{ loop.revindex }}</h4>
+                    <table class="table table-striped">
+                        <tr>
+                            <td>Nom</td>
+                            <td>{{ creditCard.name }}</td>
+                        </tr>
+                        <tr>
+                            <td>Numéro de carte</td>
+                            <td>{{ creditCard.number }}</td>
+                        </tr>
+                        <tr>
+                            <td>Date de validité</td>
+                            <td>{{ creditCard.validity |date('Y-m-d') }}</td>
+                        </tr>
+                        <tr>
+                            <td>Code de Sécurité</td>
+                            <td> {{ creditCard.securityCode }}</td>
+                        </tr>
+                    </table>
+                </div>
+
+            {% endfor %}
+        </div>
+
+        <div class="col-md-6">
+            <h2>Payements Bancaires</h2>
+
+            {% for bankTransfer in bankTransfers %}
+                <div class="element">
+
+
+                    <h4>N°{{ loop.revindex }}</h4>
+                    <table class="table table-striped">
+                        <tr>
+                            <td>Nom de la Banque</td>
+                            <td>{{ bankTransfer.BankName }}</td>
+                        </tr>
+                        <tr>
+                            <td>IBAN</td>
+                            <td>{{ bankTransfer.IBAN }}</td>
+                        </tr>
+                        <tr>
+                            <td>BIC</td>
+                            <td>{{ bankTransfer.BIC }}</td>
+                        </tr>
+                        <tr>
+                            <td>Nom du Propriétaire</td>
+                            <td> {{ bankTransfer.accountOwner }}</td>
+                        </tr>
+                    </table>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Modifier l\'offre'%}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>Modifier l'offre</h1>
+        {{ include ('admin/offer/_form.html.twig', { button: 'Modifier'}) }}
+    </div>
+{% endblock %}

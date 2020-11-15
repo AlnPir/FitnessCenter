@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Mes Séances' %}
+
+{% block body %}
+    <div class="container mt-3">
+    <h1>Mes Séances</h1>
+    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus imperdiet porttitor justo. Donec ac lorem
+        neque. Suspendisse vel urna faucibus, fermentum lacus ut, efficitur ex. Aliquam rhoncus tellus in pulvinar
+        faucibus. Curabitur tempor mollis magna, ut volutpat elit blandit ut. Donec imperdiet at lectus vitae
+        mattis. Duis et congue magna. Vestibulum posuere tempus pretium. Aliquam a facilisis tortor. Vestibulum
+        imperdiet viverra lorem, non fringilla mauris blandit sit amet. Suspendisse finibus placerat velit, id
+        sodales nibh suscipit at. Morbi et tortor orci.
+    </p>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Force</h2>
+
+            {% for strenght in strenghts %}
+                <div class="element">
+                    <h4>N°{{ loop.revindex }}</h4>
+                    <div class="divider"></div>
+                    </td>
+                    <table class="table table-striped">
+                        <tr>
+                            <td>Date de Création</td>
+                            <td>{{ strenght.createdAt |date('Y-m-d') }}</td>
+                        </tr>
+                        <tr>
+                            <td>Répétitions</td>
+                            <td>{{ strenght.repetition }} reps</td>
+                        </tr>
+                        <tr>
+                            <td>Poids</td>
+                            <td>{{ strenght.weight }} kg</td>
+                        </tr>
+                        <tr>
+                            <td>Equipement</td>
+                            <td> {{ strenght.equipement.name }}</td>
+                        </tr>
+                    </table>
+                </div>
+
+            {% endfor %}
+        </div>
+
+        <div class="col-md-6">
+            <h2>Endurance</h2>
+
+            {% for endurance in endurances %}
+                <div class="element">
+
+                    <h4>N°{{ loop.revindex }}</h4>
+                    <table class="table table-striped">
+                        <tr>
+                            <td>Date de Création</td>
+                            <td>{{ endurance.createdAt |date('Y-m-d') }}</td>
+                        </tr>
+                        <tr>
+                            <td>Durée</td>
+                            <td>{{ endurance.duration }} minutes</td>
+                        </tr>
+                        <tr>
+                            <td>Vitesse</td>
+                            <td>{{ endurance.speed }} km/h</td>
+                        </tr>
+                        <tr>
+                            <td>Equipement</td>
+                            <td> {{ endurance.equipement.name }}</td>
+                        </tr>
+                    </table>
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

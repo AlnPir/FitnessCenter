@@ -1,0 +1,9 @@
+<div class="card">
+    <div class="card-body">
+        <img class="card-img-top" src="{{ asset('img/square-placeholder.jpg') }}"
+             alt="Image Formule">
+        <h5 class="card-title text-primary mt-2">{{ offer.title }}</h5>
+        <p class="card-text">{{ offer.description | nl2br }}</p>
+        <a class="btn btn-primary mt-3" href="{{ path('offer.show', {id: offer.id, slug: offer.slug}) }}" role="button">En savoir plus</a>
+    </div>
+</div>

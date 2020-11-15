@@ -1,0 +1,42 @@
+<div class="element">
+
+    <h4>Abonnement N°{{ loop.revindex }} </h4>
+    <table class="table table-striped">
+        <tr>
+            <td>Date de Création</td>
+            <td>{{ subscription.createdAt |date('Y-m-d') }}</td>
+        </tr>
+        <tr>
+            <td>Date de Début</td>
+            <td>{{ subscription.startdate |date('Y-m-d') }}</td>
+        </tr>
+        <tr>
+            <td>Date de Fin</td>
+            <td>{{ subscription.enddate |date('Y-m-d') }}</td>
+        </tr>
+        <tr>
+            <td>Est renouvelée</td>
+            <td> {% if subscription.renewal %}
+                    Oui
+                {% else %}
+                    Non
+                {% endif %}</td>
+        </tr>
+        <tr>
+            <td>Statut</td>
+            <td>{{ subscription.status }}</td>
+        </tr>
+        <tr>
+            <td>Titre de l'offre</td>
+            <td>{{ subscription.offer.title }}</td>
+        </tr>
+        <tr>
+            <td>Moyen de Payement</td>
+            <td>{{ subscription.paymentOption }}</td>
+        </tr>
+        <tr>
+            <td>Identifiant du Moyen de Payement</td>
+            <td>{{ subscription.paymentId }}</td>
+        </tr>
+    </table>
+</div>

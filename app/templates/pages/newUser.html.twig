@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Créer un Compte'%}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>Créer un Compte</h1>
+        {{ include ('pages/_form.html.twig', { button: 'Créer'}) }}
+    </div>
+{% endblock %}

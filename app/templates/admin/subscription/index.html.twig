@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Gérer les offres'%}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>Gérer les offres</h1>
+
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for subscription in subscriptions%}
+                <tr>
+                    <td>{{ subscription.createdAt |date('Y-m-d') }}</td>
+                    <td>
+                        <a href="{{ path('admin.subscription.edit', {id:subscription.id}) }}" class="btn btn-secondary">Modifier</a>
+                        <form  method="post" action="{{ path('admin.subscription.delete', {id: subscription.id }) }}" style="display: inline-block" onsubmit="return confirm('Êtes vous sûrs ?')">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ subscription.id) }}">
+                            <button class="btn btn-danger">Supprimer</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="text-right">
+            <a href="{{ path('admin.subscription.new')}}" class="btn btn-primary">Créer une nouvelle offre</a>
+        </div>
+    </div>
+{% endblock %}
