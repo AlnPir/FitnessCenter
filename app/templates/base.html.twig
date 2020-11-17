@@ -55,11 +55,7 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     {% if app.user %}
                         <a class="dropdown-item" href="{{ path('profile.home') }}">Mes Infos</a>
-                    {% else %}
-                        <a class="dropdown-item" href="{{ path('pages.newUser') }}">Créer un compte</a>
-                    {% endif %}
                     <div class="dropdown-divider"></div>
-                    {% if app.user %}
                         <a class="dropdown-item" href="{{ path('logout') }}">Se déconnecter</a>
                     {% else %}
                         <a class="dropdown-item" href="{{ path('login') }}">Se connecter</a>

@@ -1,5 +1,5 @@
 # docker/database/Dockerfile
 
-FROM mariadb:latest
+FROM mariadb:10.5
 CMD ["mysqld"]
 EXPOSE 3306

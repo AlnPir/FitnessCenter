@@ -1,2 +1,0 @@
-# FitnessCenter
-Gym website simulation
