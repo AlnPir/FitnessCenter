@@ -24,8 +24,8 @@ It is composed by 4 containers:
 phpMyAdmin access : http://localhost:8081/
 App access : http://localhost/
 
-root access DB : root root
-user access DB : user user
+- root access DB : `root` `root`
+- user access DB : `docker` `docker`
 
-user access app : user user
-admin access app : admin admin
+- user access app : `user` `user`
+- admin access app : `admin` `admin`
