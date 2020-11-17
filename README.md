@@ -4,7 +4,7 @@
 
 A Proof-of-concept of a running Symfony 5 application inside containers, with MVC software design pattern and SQL database querying.
 
-It is composed by 4 containers:
+It is composed of 4 containers:
 
 - `nginx`, acting as the webserver with a **nginx:1.19.4-alpine** image.
 - `php-fpm`, the PHP-FPM container with a **php:7.4-fpm** image and **composer** which will run the app.
